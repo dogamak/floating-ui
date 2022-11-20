@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useFloating as usePosition} from '@floating-ui/react-dom';
+import floatingUiReactDom from '@floating-ui/react-dom';
 import useLayoutEffect from 'use-isomorphic-layout-effect';
 import type {
   FloatingContext,
@@ -27,7 +27,7 @@ export function useFloating<RT extends ReferenceType = ReferenceType>({
   const domReferenceRef = React.useRef<Element | null>(null);
   const dataRef = React.useRef<ContextData>({});
   const events = React.useState(() => createPubSub())[0];
-  const position = usePosition<RT>({
+  const position = floatingUiReactDom.useFloating<RT>({
     placement,
     middleware,
     strategy,
